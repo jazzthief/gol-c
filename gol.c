@@ -1,12 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-
-#ifdef _WINDOWS
-#include <windows.h>
-#else
 #include <unistd.h>
-#endif
 
 #include <gol.h>
 
@@ -131,7 +126,7 @@ int main()
     render();
 
     while (true) {
-        sleep(DELAY);
+        usleep(DELAY);
         clear();
         update();
         render();
