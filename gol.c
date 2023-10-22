@@ -62,7 +62,7 @@ int get_neighbours(int i, int j)
 
 void update()
 {
-    bool new_grid[D][D];
+    bool new_grid[D][D]; // buffer holding a new frame
     memcpy(new_grid, grid, grid_size);
 
     for (int i = 0; i < D; i++) {
@@ -131,7 +131,7 @@ int main()
     render();
 
     while (true) {
-        usleep(DELAY);
+        sleep(DELAY);
         clear();
         update();
         render();
