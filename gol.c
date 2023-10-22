@@ -1,10 +1,17 @@
 #include <stdio.h>
+#include <string.h>
+
+#ifdef _WINDOWS
+#include <windows.h>
+#else
 #include <unistd.h>
+#endif
+
 #include <stdbool.h>
 
 #include <gol.h>
 
-
+int DIM_LIMIT = D - 1;
 bool grid[D][D] = { false };
 int grid_size = sizeof(grid);
 
@@ -40,11 +47,10 @@ void render()
 
 int get_neighbours(int i, int j)
 {
-    int dim_limit = D - 1;
     int result = 0;
 
-    for (int x = max(0, i-1); x <= min(i+1, dim_limit); x++) {
-        for (int y = max(0, j-1); y <= min(j+1, dim_limit); y++) {
+    for (int x = max(0, i-1); x <= min(i+1, DIM_LIMIT); x++) {
+        for (int y = max(0, j-1); y <= min(j+1, DIM_LIMIT); y++) {
             if (x != i || y != j) {
                 if (grid[x][y]) {
                     result += 1;
