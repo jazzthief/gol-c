@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #ifdef _WINDOWS
 #include <windows.h>
 #else
 #include <unistd.h>
 #endif
-
-#include <stdbool.h>
 
 #include <gol.h>
 
